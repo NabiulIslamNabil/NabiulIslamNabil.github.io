@@ -1,0 +1,943 @@
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #fff; /* Light background */
+    color: #333; /* Dark text color */
+}
+
+/* Navbar */
+/* Global Variables */
+:root {
+    --bg: #fff; /* Light background */
+    --text: #333; /* Dark text color */
+    --accent: #007bff; /* Accent color */
+    --light-border: #ccc; /* Light border for elements */
+}
+
+/* Navbar */
+/* Navbar */
+/* Navbar */
+.navbar {
+    background: linear-gradient(135deg, #7ec8e3, #6fa3d1); /* Lighter gradient from soft cyan to soft blue */
+    padding: 0.4rem 2rem; /* Reduced padding for smaller height */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Adds subtle border */
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align items to the left */
+    flex-wrap: wrap;
+}
+
+.nav-logo {
+    font-size: 2rem; /* Increased font size for logo */
+    font-weight: bold;
+    color: #fff; /* White logo color for contrast */
+    text-decoration: none;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Space between icon and text */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-logo i {
+    color: #00796b; /* Icon color */
+    font-size: 2.5rem; /* Adjusted icon size for a bigger effect */
+    transition: color 0.3s ease;
+}
+
+.nav-logo:hover i {
+    color: #aaf0d1; /* Change color on hover */
+}
+
+.nav-logo:hover {
+    color: #964848; /* Lighter turquoise for logo hover */
+    transform: translateY(-5px); /* Slight logo lift on hover */
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem; /* Increased gap between links */
+    align-items: center;
+    margin-left: 2rem; /* Spacing between logo and links */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff; /* White text for links */
+    font-weight: 500;
+    font-size: 1.2rem; /* Increased font size for links */
+    padding: 0.8rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-links a:hover {
+    background-color: #aaf0d1; /* Light turquoise background on hover */
+    color: #333; /* Dark text when hovered */
+    transform: scale(1.05); /* Slight scaling effect on hover */
+}
+
+.nav-links a.active {
+    background-color: #aaf0d1; /* Active link in light turquoise */
+    color: #333;
+    transform: scale(1.05);
+}
+
+.nav-links a:hover:not(.active) {
+    transform: scale(1.05);
+}
+
+/* Responsive Menu */
+.nav-toggle {
+    display: none;
+}
+
+.nav-toggle-label {
+    display: none;
+    cursor: pointer;
+}
+
+.nav-toggle-label span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: #fff; /* White color for the hamburger icon */
+    margin: 5px 0;
+    transition: background 0.3s ease;
+}
+
+.nav-toggle-label span:hover {
+    background: #aaf0d1; /* Light turquoise hover effect on hamburger */
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        margin-top: 1rem;
+        background: var(--bg);
+        border-top: 2px solid var(--light-border);
+    }
+
+    .nav-links a {
+        padding: 1rem;
+        border-bottom: 1px solid var(--light-border);
+        text-align: center;
+    }
+
+    .nav-toggle:checked ~ .nav-links {
+        display: flex;
+    }
+
+    .nav-toggle-label {
+        display: block;
+        cursor: pointer;
+    }
+
+    .nav-toggle-label span {
+        margin: 5px 0;
+    }
+}
+
+/* Hover Effect for Logo */
+.nav-logo:hover {
+    color: #5f3131; /* Same hover color as links */
+    transform: translateY(-5px);
+}
+
+/* Dropdown Menu for Larger Screens (Optional) */
+.nav-links .dropdown {
+    position: relative;
+}
+
+.nav-links .dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.nav-links .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    min-width: 160px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+.nav-links .dropdown-menu a {
+    padding: 0.8rem 1rem;
+    color: var(--text);
+    font-weight: 400;
+    transition: background-color 0.3s ease;
+}
+
+.nav-links .dropdown-menu a:hover {
+    background-color: #aaf0d1; /* Light turquoise hover color for dropdown items */
+    color: #333;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 2rem 1.5rem; /* Reduced padding for a more compact feel */
+    background: linear-gradient(135deg, #f0f4ff, #e6f7ff); /* Light blue gradient */
+    min-height: 40vh; /* Reduced minimum height to make it smaller */
+    position: relative; /* Needed for the positioning of the pseudo-element */
+    overflow: hidden; /* To avoid image overflow */
+}
+
+/* Add blurred background image */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('assets/hero.png'); /* Ensure the path is correct */
+    background-size: cover; /* Cover the entire area */
+    background-position: center; /* Center the image */
+    filter: blur(8px); /* Apply blur effect */
+    z-index: -1; /* Place the image behind the content */
+}
+
+.hero h1 {
+    font-size: 2.5rem; /* Smaller heading font size */
+    margin-bottom: 0.5rem;
+    font-weight: 700; /* Bold for better readability */
+}
+
+.hero h1 span {
+    color: var(--accent); /* Highlight name with accent color */
+}
+
+.hero p {
+    font-size: 1.3rem; /* Smaller paragraph font size */
+    margin-bottom: 1rem; /* Reduced bottom margin */
+    font-weight: 500; /* Slightly bold for better readability */
+    color: #333; /* Ensures contrast with background */
+}
+
+.hero-image img {
+    width: 180px; /* Smaller image size */
+    height: 180px;
+    border-radius: 50%;
+    border: 4px solid var(--accent); /* Accent border for the image */
+    margin-bottom: 1rem;
+    object-fit: cover; /* Ensures image doesn't stretch */
+}
+
+/* Social Media Buttons */
+.links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem; /* Reduced gap between buttons */
+    margin-top: 1rem;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1rem; /* Reduced padding for smaller buttons */
+    background-color: var(--accent); /* Default accent color */
+    color: #fff;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.2s ease; /* Added smooth transform for hover */
+}
+
+.social-btn i {
+    font-size: 1.5rem;
+}
+
+.social-btn:hover {
+    background-color: #005dc1; /* Slightly darker accent color */
+    transform: translateY(-3px); /* Hover effect for elevation */
+}
+
+/* Specific Social Button Styles */
+.github {
+    background-color: #333; /* GitHub color */
+}
+
+.github:hover {
+    background-color: #444;
+}
+
+.linkedin {
+    background-color: #0077b5; /* LinkedIn color */
+}
+
+.linkedin:hover {
+    background-color: #005f80;
+}
+
+.facebook {
+    background-color: #3b5998; /* Facebook color */
+}
+
+.facebook:hover {
+    background-color: #2d4373;
+}
+
+.discord {
+    background-color: #7289da; /* Discord color */
+}
+
+.discord:hover {
+    background-color: #5c6d89;
+}
+
+.instagram {
+    background-color: #e4405f; /* Instagram color */
+}
+
+.instagram:hover {
+    background-color: #c13584;
+}
+
+.twitter {
+    background-color: #1da1f2; /* Twitter color */
+}
+
+.twitter:hover {
+    background-color: #1991db;
+}
+
+.youtube-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    background-color: #FF0000; /* YouTube color */
+    color: #fff;
+    border-radius: 6px;
+    transition: background-color 0.3s, transform 0.2s ease;
+}
+
+.youtube-btn:hover {
+    background-color: #cc0000;
+    transform: translateY(-3px);
+}
+
+/* Sections Common */
+section {
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, rgba(240, 244, 255, 0.8), rgba(230, 247, 255, 0.8)), url('') no-repeat center center/cover; /* Added pattern overlay */
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+}
+
+section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    color: var(--text); /* Ensuring the section title matches text color */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Added subtle text shadow for readability */
+}
+
+/* Project Section */
+/* Project Section */
+.projects {
+    padding: 5rem 2rem;
+    background: linear-gradient(120deg, #e0f7fa, #fce4ec); /* Soft colorful gradient */
+    /*background-image: url('assets/project.jpg'); /* Optional subtle pattern */
+    background-blend-mode: overlay;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.projects-gif {
+    max-width: 30%; /* Responsive large width */
+    width: 100%;
+    margin: 0 auto 2rem auto;
+    display: block;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* Optional: Gradient overlay */
+.projects::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    right: 0; bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+    z-index: 0;
+    pointer-events: none;
+}
+
+.projects h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid #00acc1; /* Stylish underline */
+}
+
+.projects h2 i {
+    color: #00796b;
+    margin-right: 0.5rem;
+}
+
+
+
+.project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.project-card {
+    background: rgba(240, 248, 255, 0.5); /* Very light blue tint (AliceBlue) */
+    backdrop-filter: blur(14px) saturate(160%);
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
+    border-radius: 20px; /* Smooth rounded corners */
+    padding: 2rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #2c3e50;
+    border: 1px solid rgba(255, 255, 255, 0.4); /* Soft border for depth */
+}
+
+
+
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+
+.project-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #00796b;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 4px;
+    border-bottom: 2px solid #00796b; /* Underline for emphasis */
+}
+
+
+.project-card p {
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+    color: #444;
+}
+
+.project-card a {
+    display: inline-block;
+    margin: 0.3rem;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+.github-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.6rem 1.2rem;
+    background-color: #333; /* GitHub color */
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.github-btn:hover {
+    background-color: #444;
+    transform: scale(1.05);
+}
+
+
+
+/* Skills */
+.skills {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.skills h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    position: relative; /* For positioning the underline */
+    display: inline-block; /* Ensure the underline is just under the text */
+    padding-bottom: 0.5rem; /* Space between the text and the underline */
+}
+
+.skills h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    border-bottom: 3px solid #00acc1
+}
+
+.skills h2 i {
+    color: #00796b;
+    font-size: 2rem;
+}
+
+
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+}
+
+.tags span {
+    background: linear-gradient(135deg, #6a11cb, #2575fc); /* Elegant purple to blue gradient */
+    color: white; /* White text color for contrast */
+    padding: 0.6rem 1rem;
+    border-radius: 35px; /* More rounded for an elegant look */
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+}
+
+.tags span:hover {
+    transform: translateY(-5px); /* Subtle lift effect on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow on hover */
+}
+
+.tags span i {
+    font-size: 1rem;
+}
+
+
+
+
+
+/* Achievements */
+.achievements {
+    padding: 4rem 2rem;
+    text-align: center; /* Center-align text for the entire section */
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(210, 235, 255, 0.7), rgba(240, 240, 255, 0.8), rgba(230, 220, 255, 0.6)); /* Lighter and smoother gradient */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center content vertically */
+}
+
+/* Blurry Background using Pseudo-Element */
+.achievements::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: inherit; /* Inherit background image */
+    background-size: cover;
+    background-position: center;
+    filter: blur(20px); /* Moderate blur effect */
+    z-index: -1; /* Place it behind the content */
+}
+
+.achievements h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #2c3e50; /* Dark color for contrast */
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    display: inline-block; /* Ensure the underline is just under the text */
+    padding-bottom: 0.5rem; /* Space between the text and the underline */
+    position: relative; /* For positioning the underline */
+}
+
+.achievements h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #00acc1; /* Underline color */
+    z-index: -1; /* Ensure the underline stays behind the text */
+}
+
+
+.achievements h2 i {
+    font-size: 2rem;
+    color: #00796b; /* Dark teal green for the achievements icon */
+}
+
+
+/* Achievement Image */
+.achievement-image {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.achievement-image img {
+    width: 100%;
+    max-width: 200px; /* Adjust as needed */
+    border-radius: 10px;
+}
+
+/* Achievements List */
+.achievements ul {
+    list-style: none;
+    font-size: 1.1rem;
+    line-height: 2rem;
+    padding: 0;
+    display: inline-block;
+    max-width: 900px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.15); /* Lighter frosted glass effect */
+    backdrop-filter: blur(15px); /* Slightly enhanced blur effect */
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 18px; /* Slightly more rounded corners */
+    padding: 2rem;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    color: #2c3e50;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left; /* Left-align text inside the list box */
+}
+
+.achievements ul li i {
+    font-size: 1.5rem;
+    margin-right: 10px;
+    color: #00796b; /* You can customize the color as well */
+}
+
+
+/* Hover effect on list items */
+.achievements ul li {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 1px solid #ddd;
+    color: #2c3e50;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect on list items */
+.achievements ul li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Adding icons to each item */
+.achievements ul li::before {
+    font-size: 1.3rem;
+    margin-right: 10px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .achievements {
+        padding: 3rem 1.5rem;
+    }
+
+    .achievements h2 {
+        font-size: 2rem;
+    }
+
+    .achievements ul {
+        padding: 1.5rem;
+    }
+
+    .achievements ul li {
+        font-size: 1rem;
+    }
+}
+
+
+/* Experience Section */
+.experience {
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, rgba(240, 244, 255, 0.8), rgba(235, 245, 255, 0.8)), url('assets/your-subtle-pattern.png') no-repeat center center/cover;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Experience Header */
+.experience h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    color: var(--text);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    display: inline-block; /* Ensure underline is just under the text */
+    padding-bottom: 0.5rem; /* Space between text and the underline */
+    position: relative; /* For positioning the underline */
+}
+
+.experience h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #00acc1; /* Underline color */
+    z-index: -1; /* Keep the underline behind the text */
+}
+
+/* Experience Icon */
+.experience h2 i {
+    margin-right: 0.5rem;
+    color: #00796b; /* Color for the icon */
+}
+
+/* Experience Image */
+.experience-image {
+    margin: 2rem 0;
+}
+
+.experience-image img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Experience Cards */
+.experience-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* Individual Experience Card */
+.experience-card {
+    background: rgba(255, 255, 255, 0.2); /* More transparency for glass effect */
+    backdrop-filter: blur(10px); /* Glassmorphism effect */
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    color: #444;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Title of Experience Card */
+.experience-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #00796b;
+}
+
+/* Paragraph inside Experience Card */
+.experience-card p {
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+    color: #444;
+}
+
+/* List Items in Experience Card */
+.experience-card ul li {
+    padding: 0.5rem 0;
+    color: #2c3e50;
+}
+
+/* Hover Effect on Experience Card */
+.experience-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Add space before Sports and Competitions */
+.experience-card h3:last-of-type {
+    margin-top: 2rem; /* Adding space before Sports & Competitions */
+}
+
+/* Mobile Responsiveness: Stack cards vertically on small screens */
+@media (max-width: 768px) {
+    .experience-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+/* Education */
+.education {
+    background: linear-gradient(135deg, #fdfdfd, #eafafc); /* Very light pastel gradient */
+    text-align: center;
+    padding: 4rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Education Header */
+.education h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1.5rem;
+    display: inline-block; /* Ensure underline is just under the text */
+    padding-bottom: 0.5rem; /* Space between the text and the underline */
+    position: relative; /* For positioning the underline */
+}
+
+.education h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #00acc1; /* Underline color */
+    z-index: 1; /* Ensure the underline is above the background */
+}
+
+/* Green icon */
+.education h2 i {
+    font-size: 2rem;
+    color: #00796b; /* Darker green for the education icon */
+}
+
+/* Education Image */
+.education-image {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.education-image img {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Glassmorphism Card */
+.education .section-content {
+    background: rgba(255, 255, 255, 0.15); /* Slightly darker transparency */
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    padding: 2rem 3rem;
+    border-radius: 20px;
+    color: #1a1a1a;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 800px;
+    margin: 0 auto;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    text-align: center;
+}
+
+/* Milestone Icon */
+.milestone-icon {
+    color: #388e3c; /* Rich green */
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+}
+
+/* Education List Styling */
+.education ul {
+    list-style: none;
+    font-size: 1.1rem;
+    line-height: 2rem;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.education ul li {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .education {
+        padding: 3rem 1.5rem;
+    }
+
+    .education h2 {
+        font-size: 2rem;
+    }
+
+    .education ul li {
+        font-size: 1rem;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .education .section-content {
+        padding: 1.5rem 2rem;
+    }
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #7ec8e3, #6fa3d1); /* Matching navbar gradient */
+    font-size: 1.2rem;
+    color: #fff; /* White text for contrast */
+}
+
