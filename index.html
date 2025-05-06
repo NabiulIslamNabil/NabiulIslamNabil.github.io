@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
   <title>S.M. Nabiul Islam | Portfolio</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
   <script defer src="script.js"></script>
 </head>
@@ -17,10 +19,14 @@
   <nav class="navbar">
     <div class="nav-container">
       <a href="#home" class="nav-logo"><i class="fas fa-home"></i></a>
+
       <input type="checkbox" id="nav-toggle" class="nav-toggle">
-      <label for="nav-toggle" class="nav-toggle-label">
+      <label for="nav-toggle" class="nav-toggle-label" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
         <span></span>
       </label>
+
       <div class="nav-links">
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
@@ -31,6 +37,7 @@
       </div>
     </div>
   </nav>
+  
 
   <!-- Hero Section -->
   <section class="hero" id="home">
