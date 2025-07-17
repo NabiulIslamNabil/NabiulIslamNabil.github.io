@@ -1057,156 +1057,172 @@ section h2 {
 
 /* Education */
 .education {
-    background: linear-gradient(135deg, #fdfdfd, #eafafc); /* Very light pastel gradient */
-    text-align: center;
-    padding: 4rem 2rem;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
-    position: relative;
-    overflow: hidden;
+  background: linear-gradient(135deg, #fdfdfd, #eafafc);
+  text-align: center;
+  padding: 4rem 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+  overflow: hidden;
 }
 
-/* Education Header */
+/* Header */
 .education h2 {
-    font-size: 2.5rem;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 1.5rem;
-    display: inline-block; /* Ensure underline is just under the text */
-    padding-bottom: 0.5rem; /* Space between the text and the underline */
-    position: relative; /* For positioning the underline */
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  position: relative;
 }
 
 .education h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background-color: #00acc1; /* Underline color */
-    z-index: 1; /* Ensure the underline is above the background */
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #00acc1;
 }
 
-/* Green icon */
 .education h2 i {
-    font-size: 2rem;
-    color: #00796b; /* Darker green for the education icon */
+  font-size: 2rem;
+  color: #00796b;
 }
 
-/* Education Image */
+/* Image */
 .education-image {
-    text-align: center;
-    margin-bottom: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .education-image img {
-    width: 100%;
-    max-width: 200px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 200px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-/* Glassmorphism Card */
-.education .section-content {
-    background: rgba(255, 255, 255, 0.15); /* Slightly darker transparency */
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
-    padding: 2rem 3rem;
-    border-radius: 20px;
-    color: #1a1a1a;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    max-width: 800px;
-    margin: 0 auto;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    text-align: center;
+/* Section Content */
+.section-content {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  padding: 2rem 3rem;
+  border-radius: 20px;
+  color: #1a1a1a;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* Milestone Icon */
+/* List */
+.education-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.education-list li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Icon */
 .milestone-icon {
-    color: #388e3c; /* Rich green */
-    margin-right: 0.5rem;
-    font-size: 1.2rem;
+  color: #388e3c;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
 }
 
-/* Education List Styling */
-.education ul {
-    list-style: none;
-    font-size: 1.1rem;
-    line-height: 2rem;
-    padding: 0;
-    margin-bottom: 0;
+/* Education Item */
+.education-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.education ul li {
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.edu-title {
+  font-weight: bold;
+  font-size: 1.15rem;
+  color: #222;
 }
 
-/* ========== Mobile Responsiveness ========== */
+.edu-sub {
+  font-size: 1rem;
+  color: #555;
+  margin-top: 0.3rem;
+}
 
+.edu-sub strong {
+  color: #00796b;
+  font-weight: 600;
+}
+
+/* Tablet Responsive */
 @media (max-width: 768px) {
-    .education {
-        padding: 3rem 1.5rem;
-    }
+  .education {
+    padding: 3rem 1.5rem;
+  }
 
-    .education h2 {
-        font-size: 2rem;
-    }
+  .education h2 {
+    font-size: 2rem;
+  }
 
-    .education-image img {
-        max-width: 180px;
-    }
+  .education-image img {
+    max-width: 180px;
+  }
 
-    .education ul li {
-        font-size: 1rem;
-        flex-direction: column;
-        text-align: center;
-    }
+  .section-content {
+    padding: 1.5rem 2rem;
+  }
 
-    .education .section-content {
-        padding: 1.5rem 2rem;
-    }
+  .edu-title {
+    font-size: 1.05rem;
+  }
 
-    .education ul li .milestone-icon {
-        font-size: 1rem; /* Adjust icon size for mobile */
-    }
+  .edu-sub {
+    font-size: 0.95rem;
+  }
 }
 
-/* ========== Mobile-First for Smaller Screens ========== */
+/* Mobile Responsive */
 @media (max-width: 480px) {
-    .education {
-        padding: 2.5rem 1rem;
-    }
+  .education {
+    padding: 2.5rem 1rem;
+  }
 
-    .education h2 {
-        font-size: 1.7rem;
-    }
+  .education h2 {
+    font-size: 1.7rem;
+  }
 
-    .education-image img {
-        max-width: 150px;
-    }
+  .education-image img {
+    max-width: 150px;
+  }
 
-    .education ul li {
-        font-size: 0.95rem;
-        flex-direction: column;
-        text-align: center;
-    }
+  .section-content {
+    padding: 1.2rem 1.5rem;
+  }
 
-    .education .section-content {
-        padding: 1.2rem 1.5rem;
-    }
+  .milestone-icon {
+    font-size: 1rem;
+  }
 
-    .education ul li .milestone-icon {
-        font-size: 0.9rem; /* Smaller icon for very small screens */
-    }
+  .edu-title {
+    font-size: 1rem;
+  }
+
+  .edu-sub {
+    font-size: 0.9rem;
+  }
 }
+
 
 
 /* Footer */
