@@ -462,31 +462,33 @@ section h2 {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
+/* Projects Section */
 .project-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+  gap: 30px;
+  justify-items: center;
+  align-items: stretch; /* ensures all cards have equal height */
 }
 
 .project-card {
-    background: rgba(240, 248, 255, 0.5);
-    backdrop-filter: blur(14px) saturate(160%);
-    -webkit-backdrop-filter: blur(14px) saturate(160%);
-    border-radius: 20px;
-    padding: 2rem;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    color: #2c3e50;
-    border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 25px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* ensures spacing inside cards is balanced */
+  min-height: 250px; /* consistent height */
 }
 
 .project-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  transform: translateY(-8px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
 }
 
 .project-card h3 {
@@ -609,6 +611,12 @@ section h2 {
         padding: 0.4rem 0.8rem;
         font-size: 0.9rem;
     }
+}
+
+@media (max-width: 768px) {
+  .project-list {
+    grid-template-columns: 1fr; /* single column on mobile */
+  }
 }
 
 
