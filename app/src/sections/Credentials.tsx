@@ -1,7 +1,7 @@
 import TerminalReveal from '../components/TerminalReveal';
 
 const education = [
-  'B.Sc. in Computer Science and Engineering, United International University - Fall 2022 to ongoing, CGPA 4.00, 110 credits completed and ongoing',
+  'B.Sc. in Computer Science and Engineering, United International University - Fall 2022 to ongoing, CGPA 4.00, 121 credits completed and ongoing',
   'Higher Secondary Certificate, Shaheed Police Smrity College, Dhaka Board - 2021, GPA 5.00',
   'Secondary School Certificate, Banani Bidyaniketan School & College, Dhaka Board - 2019, GPA 4.89',
 ];
@@ -17,7 +17,7 @@ const achievements = [
   'Champion - UIU CSE Project Show Spring 2025, Project ResQ',
   '3rd Runners-Up - UIU CSE Project Show Summer 2025, Project ARAM',
   '4th Runners-Up - UIU CSE Project Show Fall 2023, Project EasyNeeds',
-  '100% Merit Scholarship from UIU for 10 consecutive semesters, Spring 2023 to Fall 2025',
+  '100% Merit Scholarship from UIU for 11 consecutive semesters, Spring 2023 to Summer 2026',
   '2nd Place - First Aid Training Competition, Bangladesh Red Crescent Youth',
 ];
 
