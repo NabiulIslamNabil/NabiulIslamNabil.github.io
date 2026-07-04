@@ -1,7 +1,13 @@
 name: Deploy to GitHub Pages
+
 on:
   push:
     branches: [main]
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -12,15 +18,22 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
-      - run: cd app && npm install
+          node-version: 24
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+
+      - run: cd app && npm ci
       - run: cd app && npm run build
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: app/dist
-      - uses: actions/deploy-pages@v4
-        id: deployment
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
