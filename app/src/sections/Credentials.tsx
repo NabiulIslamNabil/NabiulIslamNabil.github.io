@@ -8,7 +8,7 @@ const education = [
 
 const experience = [
   'Undergraduate Teaching Assistant at United International University - Spring 2025 to present',
-  'Assisted labs for Data Structures & Algorithms I & II, Electronics Lab, introductory programming, and computer systems courses',
+  'Assisted labs for Data Structures & Algorithms I & II, Software Engineering Lab, Electronics Lab, Introduction to Computer Systems and Structured Programming Language courses',
   'Guided debugging, algorithmic problem solving, project development, and probation student counselling',
   'Volunteer with Bangladesh Red Crescent Youth, BBNSC - 2014 to 2019',
 ];
