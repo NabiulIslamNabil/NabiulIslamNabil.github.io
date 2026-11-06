@@ -9,6 +9,7 @@ interface NavigationProps {
 const navItems = [
   { id: 'projects', label: 'Projects' },
   { id: 'stack', label: 'Stack' },
+  { id: 'research', label: 'Research' },
   { id: 'credentials', label: 'CV' },
   { id: 'about', label: 'About' },
   { id: 'contact', label: 'Contact' },

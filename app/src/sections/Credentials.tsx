@@ -1,13 +1,13 @@
 import TerminalReveal from '../components/TerminalReveal';
 
 const education = [
-  'B.Sc. in Computer Science and Engineering, United International University - Fall 2022 to ongoing, CGPA 4.00, 121 credits completed and ongoing',
+  'B.Sc. in Computer Science and Engineering, United International University - Fall 2022 to ongoing, CGPA 4.00, 132 credits completed and ongoing',
   'Higher Secondary Certificate, Shaheed Police Smrity College, Dhaka Board - 2021, GPA 5.00',
   'Secondary School Certificate, Banani Bidyaniketan School & College, Dhaka Board - 2019, GPA 4.89',
 ];
 
 const experience = [
-  'Undergraduate Teaching Assistant at United International University - Spring 2025 to present',
+  'Undergraduate Teaching Assistant at United International University - March 2025 to present',
   'Co-Head – Academic Growth & Development at UIU App Forum, United International University - Oct 2026 to present',
   'Assisted labs for Data Structures & Algorithms I & II, Software Engineering Lab, Electronics Lab, Introduction to Computer Systems and Structured Programming Language courses',
   'Guided debugging, algorithmic problem solving, project development, and probation student counselling',
@@ -19,7 +19,7 @@ const achievements = [
   'Champion - UIU CSE Project Show Spring 2025, Project ResQ',
   '3rd Runners-Up - UIU CSE Project Show Summer 2025, Project ARAM',
   '4th Runners-Up - UIU CSE Project Show Fall 2023, Project EasyNeeds',
-  '100% Merit Scholarship from UIU for 11 consecutive semesters, Spring 2023 to Summer 2026',
+  '100% Merit Scholarship from UIU for 12 consecutive semesters, Spring 2023 to Summer 2026',
   '2nd Place - First Aid Training Competition, Bangladesh Red Crescent Youth',
 ];
 
@@ -27,26 +27,6 @@ const certifications = [
   'DevOps for Engineers - CENTER & UIU Cisco Networking Academy',
   'Grameenphone Academy - Interview & Assessment Centre, Art of Communication, Corporate Presentation Skills, Sharpen Your Interview Skills',
 ];
-
-const research = [
-  'Cybersecurity',
-  'Machine Learning',
-  'Edge Intelligence',
-  'Internet of Things',
-  'Green Computing',
-  'Federated Learning',
-  'Software Development',
-];
-
-const highlightResearch = new Set([
-  'Cybersecurity',
-  'Machine Learning',
-  'Edge Intelligence',
-  'Internet of Things',
-  'Green Computing',
-  'Federated Learning',
-  'Software Development',
-]);
 
 const groups = [
   { title: 'Education', items: education },
@@ -122,26 +102,6 @@ export default function Credentials() {
             ))}
           </div>
 
-          <div className="mt-10 flex flex-wrap gap-2.5">
-            {research.map((item) => {
-              const highlight = typeof highlightResearch !== 'undefined' && highlightResearch.has(item);
-              return (
-                <span
-                  key={item}
-                  className="font-mono text-xs"
-                  style={{
-                    color: highlight ? '#DFAE4C' : '#F2E9E4',
-                    border: highlight ? '1px solid rgba(247, 181, 56, 0.46)' : '1px solid rgba(242, 233, 228, 0.1)',
-                    borderRadius: '100px',
-                    padding: '8px 12px',
-                    backgroundColor: highlight ? 'rgba(247, 181, 56, 0.08)' : 'rgba(242, 233, 228, 0.04)',
-                  }}
-                >
-                  {item}
-                </span>
-              );
-            })}
-          </div>
         </TerminalReveal>
       </div>
     </section>

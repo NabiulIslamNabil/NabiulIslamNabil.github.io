@@ -47,7 +47,10 @@ const categories: Category[] = [
       { name: 'Machine Learning', color: '#DFAE4C' },
       { name: 'IoT', color: '#8FA3A6' },
       { name: 'Cybersecurity', color: '#DFAE4C' },
-      { name: 'Federated Learning', color: '#8FA3A6' },
+      { name: 'Edge Intelligence', color: '#8FA3A6' },
+      { name: 'HCI', color: '#C8B6FF' },
+      { name: 'Computer Security', color: '#DFAE4C' },
+      { name: 'Digital Image Processing', color: '#8FA3A6' },
     ],
   },
 ];

@@ -79,7 +79,7 @@ export default function Contact() {
             transform: 'translateY(30px)',
           }}
         >
-          Let us build something useful.
+          Lets build something useful.
         </h2>
 
         {/* Body */}

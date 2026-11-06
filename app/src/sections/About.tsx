@@ -75,7 +75,7 @@ export default function About() {
             }}
           >
             I'm a Computer Science and Engineering undergraduate at United International University
-            with a 4.00 CGPA and 121 credits completed and ongoing. I work across mobile apps,
+            with a 4.00 CGPA and 132 credits completed and ongoing. I work across mobile apps,
             full-stack systems, embedded hardware, and research-oriented computing.
           </p>
 
@@ -136,7 +136,7 @@ export default function About() {
             style={{ aspectRatio: '3/4', borderRadius: '20px' }}
           >
             <img
-              src="/assets/Nabiul3.jpg"
+              src="/assets/Nabiul5.jpg"
               alt="S.M. Nabiul Islam Nabil"
               className="w-full h-full object-cover"
             />

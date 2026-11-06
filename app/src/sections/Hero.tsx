@@ -127,7 +127,7 @@ export default function Hero({ lenisRef }: HeroProps) {
             }}
           >
             I build practical software, IoT systems, and AI-assisted solutions for real-world problems in Bangladesh. 
-            Currently working on projects and doing research at UIU and I have also mentored over 300+ students as an 
+            Currently working on projects and doing research at UIU and I have also mentored over 400+ students as an 
             Undergraduate Teaching Assistant.
           </p>
 
@@ -199,7 +199,7 @@ export default function Hero({ lenisRef }: HeroProps) {
                   border: '1px solid rgba(247, 181, 56, 0.14)',
                 }}
               >
-                <div className="font-bold">300+</div>
+                <div className="font-bold">400+</div>
                 <div className="text-xs">Students Mentored</div>
               </div>
             </div>
