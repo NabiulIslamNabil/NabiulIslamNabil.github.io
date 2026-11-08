@@ -168,7 +168,7 @@ export default function Hero({ lenisRef }: HeroProps) {
             }}
           >
             <img
-              src="/assets/Nabiul4.jpg"
+              src="/assets/headshot.jpg"
               alt="S.M. Nabiul Islam Nabil"
               className="w-full h-full object-cover"
             />
@@ -178,43 +178,65 @@ export default function Hero({ lenisRef }: HeroProps) {
           <div ref={badgesContainerRef}>
             <div className="badge-item absolute -bottom-6 -left-12 opacity-0">
               <div
-                className="font-mono text-sm px-4 py-3 rounded-lg backdrop-blur-md"
+                className="relative min-w-[164px] overflow-hidden rounded-xl px-4 py-3 font-mono text-sm backdrop-blur-md"
                 style={{
-                  backgroundColor: 'rgba(10, 9, 8, 0.86)',
+                  background: 'linear-gradient(145deg, rgba(27, 24, 18, 0.96), rgba(10, 9, 8, 0.9))',
                   color: '#F2E9E4',
-                  border: '1px solid rgba(247, 181, 56, 0.22)',
+                  border: '1px solid rgba(223, 174, 76, 0.7)',
+                  boxShadow: '0 14px 30px rgba(0, 0, 0, 0.32), inset 0 1px 0 rgba(247, 181, 56, 0.18)',
                 }}
               >
-                <div className="font-bold">Champion</div>
-                <div className="text-xs opacity-80">UIU Project Show 2025</div>
+                <div className="mb-2 h-1 w-8 rounded-full bg-[#DFAE4C]" />
+                <div className="font-bold text-[#DFAE4C]">Champion</div>
+                <div className="text-xs opacity-75">UIU Project Show 2025</div>
               </div>
             </div>
 
             <div className="badge-item absolute top-8 -right-12 opacity-0">
               <div
-                className="font-mono text-sm px-4 py-3 rounded-lg backdrop-blur-md"
+                className="relative min-w-[164px] overflow-hidden rounded-xl px-4 py-3 font-mono text-sm backdrop-blur-md"
                 style={{
-                  backgroundColor: 'rgba(34, 51, 59, 0.8)',
+                  background: 'linear-gradient(145deg, rgba(27, 24, 18, 0.96), rgba(10, 9, 8, 0.9))',
                   color: '#F2E9E4',
-                  border: '1px solid rgba(247, 181, 56, 0.14)',
+                  border: '1px solid rgba(223, 174, 76, 0.7)',
+                  boxShadow: '0 14px 30px rgba(0, 0, 0, 0.32), inset 0 1px 0 rgba(247, 181, 56, 0.18)',
                 }}
               >
-                <div className="font-bold">400+</div>
-                <div className="text-xs">Students Mentored</div>
+                <div className="mb-2 h-1 w-8 rounded-full bg-[#DFAE4C]" />
+                <div className="font-bold text-[#DFAE4C]">400+</div>
+                <div className="text-xs opacity-75">Students Mentored</div>
               </div>
             </div>
 
             <div className="badge-item absolute bottom-1/3 -right-8 opacity-0">
               <div
-                className="font-mono text-sm px-4 py-3 rounded-lg backdrop-blur-md"
+                className="relative min-w-[164px] overflow-hidden rounded-xl px-4 py-3 font-mono text-sm backdrop-blur-md"
                 style={{
-                  backgroundColor: 'rgba(16, 23, 25, 0.84)',
+                  background: 'linear-gradient(145deg, rgba(27, 24, 18, 0.96), rgba(10, 9, 8, 0.9))',
                   color: '#F2E9E4',
-                  border: '1px solid rgba(169, 159, 149, 0.22)',
+                  border: '1px solid rgba(223, 174, 76, 0.7)',
+                  boxShadow: '0 14px 30px rgba(0, 0, 0, 0.32), inset 0 1px 0 rgba(247, 181, 56, 0.18)',
                 }}
               >
-                <div className="font-bold">Full Stack</div>
-                <div className="text-xs">Developer & Mentor</div>
+                <div className="mb-2 h-1 w-8 rounded-full bg-[#DFAE4C]" />
+                <div className="font-bold text-[#DFAE4C]">Full Stack</div>
+                <div className="text-xs opacity-75">Developer & Mentor</div>
+              </div>
+            </div>
+
+            <div className="badge-item absolute top-8 -left-12 opacity-0">
+              <div
+                className="relative min-w-[220px] overflow-hidden rounded-xl px-4 py-3 font-mono text-sm backdrop-blur-md"
+                style={{
+                  background: 'linear-gradient(145deg, rgba(27, 24, 18, 0.96), rgba(10, 9, 8, 0.9))',
+                  color: '#F2E9E4',
+                  border: '1px solid rgba(223, 174, 76, 0.7)',
+                  boxShadow: '0 14px 30px rgba(0, 0, 0, 0.32), inset 0 1px 0 rgba(247, 181, 56, 0.18)',
+                }}
+              >
+                <div className="mb-2 h-1 w-8 rounded-full bg-[#DFAE4C]" />
+                <div className="font-bold text-[#DFAE4C]">100% Scholarship</div>
+                <div className="text-xs opacity-75">12 consecutive times · 4 years</div>
               </div>
             </div>
           </div>

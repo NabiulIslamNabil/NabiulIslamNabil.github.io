@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
-import gsap from 'gsap';
+import TerminalReveal from '../components/TerminalReveal';
 
 interface Tool {
   name: string;
@@ -56,65 +55,9 @@ const categories: Category[] = [
 ];
 
 export default function Stack() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const terminalRef = useRef<HTMLDivElement>(null);
-  const commandRef = useRef<HTMLDivElement>(null);
-  const categoriesRef = useRef<HTMLDivElement>(null);
-  const [typedText, setTypedText] = useState('');
-  const [showCategories, setShowCategories] = useState(false);
-  const fullCommand = 'cat nabiul-stack.txt';
-
-  useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            startTypingAnimation();
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
-
-    observer.observe(section);
-
-    return () => observer.disconnect();
-  }, []);
-
-  const startTypingAnimation = () => {
-    let i = 0;
-    const typeInterval = setInterval(() => {
-      i++;
-      setTypedText(fullCommand.slice(0, i));
-      if (i >= fullCommand.length) {
-        clearInterval(typeInterval);
-        // Show categories after command is typed
-        setTimeout(() => {
-          setShowCategories(true);
-          // Animate tool chips
-          const chips = categoriesRef.current?.querySelectorAll('.tool-chip');
-          if (chips) {
-            gsap.to(chips, {
-              opacity: 1,
-              y: 0,
-              duration: 0.4,
-              stagger: 0.03,
-              ease: 'cubic-bezier(0.215, 0.61, 0.355, 1)',
-            });
-          }
-        }, 400);
-      }
-    }, 40);
-  };
-
   return (
     <section
       id="stack"
-      ref={sectionRef}
       className="gold-dotted-bg"
       style={{
         paddingTop: '120px',
@@ -146,71 +89,14 @@ export default function Stack() {
         </p>
       </div>
 
-      {/* Terminal Block */}
-      <div
-        ref={terminalRef}
-        className="mx-auto mt-16"
-        style={{
-          maxWidth: '900px',
-          background: 'linear-gradient(145deg, rgba(5, 5, 5, 0.96), rgba(12, 16, 17, 0.94))',
-          borderRadius: '16px',
-          padding: '40px',
-          border: '1px solid rgba(242, 233, 228, 0.1)',
-          boxShadow: '0 24px 80px rgba(0, 0, 0, 0.34)',
-          overflow: 'hidden',
-        }}
-      >
-        <div
-          className="flex items-center gap-2"
-          aria-hidden="true"
-          style={{
-            margin: '-40px -40px 28px',
-            padding: '14px 40px',
-            background: 'linear-gradient(90deg, rgb(28 157 62 / 95%), rgb(100 197 48 / 78%))',
-            borderBottom: '1px solid rgba(100, 197, 48, 0.65)',
-          }}
-        >
-          <span className="w-3 h-3 rounded-full" style={{ backgroundColor: '#FF5F56' }} />
-          <span className="w-3 h-3 rounded-full" style={{ backgroundColor: '#FFBD2E' }} />
-          <span className="w-3 h-3 rounded-full" style={{ backgroundColor: '#27C93F' }} />
-          <span className="font-mono text-[11px] uppercase tracking-[0.1em] ml-3" style={{ color: '#0A0908' }}>
-            Stack
-          </span>
-        </div>
-
-        {/* Prompt line */}
-        <div className="font-mono text-sm">
-          <span style={{ color: '#DFAE4C' }}>nabiul</span>
-          <span style={{ color: '#8A817C' }}>@dev</span>
-          <span style={{ color: '#DFAE4C' }}>:~$</span>{' '}
-          <span ref={commandRef} className="text-bone">{typedText}</span>
-          <span className="inline-block w-2 h-4 bg-bone ml-0.5 animate-caret-blink align-middle" />
-        </div>
-
-        {/* Command output label */}
-        <div className="font-mono text-sm mt-3" style={{ color: '#8A817C' }}>
-          {typedText === fullCommand ? fullCommand : ''}
-        </div>
-
-        {/* Separator */}
-        <div
-          className="my-6"
-          style={{
-            height: '1px',
-            backgroundColor: 'rgba(242, 233, 228, 0.08)',
-          }}
-        />
-
-        {/* Categories */}
-        <div ref={categoriesRef}>
+      <TerminalReveal command="cat nabiul-stack.txt" label="Tech Stack" maxWidth="900px" className="mt-16">
           {categories.map((cat, catIdx) => (
             <div
               key={catIdx}
               className="mb-6 last:mb-0"
               style={{
-                opacity: showCategories ? 1 : 0,
-                transition: 'opacity 0.3s ease',
-                transitionDelay: `${catIdx * 100}ms`,
+                animation: 'terminal-output-in 500ms ease both',
+                animationDelay: `${catIdx * 100}ms`,
               }}
             >
               <h3
@@ -226,11 +112,11 @@ export default function Stack() {
                     className="tool-chip flex items-center gap-2"
                     style={{
                       backgroundColor: 'rgba(242, 233, 228, 0.045)',
-                      border: '1px solid rgba(242, 233, 228, 0.07)',
-                      borderRadius: '8px',
+                      border: '1px solid rgba(223, 174, 76, 0.18)',
+                      borderRadius: '10px',
                       padding: '10px 16px',
-                      opacity: 0,
-                      transform: 'translateY(10px)',
+                      boxShadow: 'inset 0 1px 0 rgba(247, 181, 56, 0.08)',
+                      transition: 'border-color 200ms ease, background-color 200ms ease, transform 200ms ease',
                     }}
                   >
                     <span
@@ -250,8 +136,7 @@ export default function Stack() {
               </div>
             </div>
           ))}
-        </div>
-      </div>
+      </TerminalReveal>
     </section>
   );
 }

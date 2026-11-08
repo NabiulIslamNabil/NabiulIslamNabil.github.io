@@ -51,51 +51,67 @@ export default function TerminalReveal({
   return (
     <div
       ref={terminalRef}
-      className={`mx-auto ${className}`}
+      className={`group relative mx-auto overflow-hidden ${className}`}
       style={{
         maxWidth,
-        background: 'linear-gradient(145deg, rgba(5, 5, 5, 0.96), rgba(12, 16, 17, 0.94))',
-        borderRadius: '16px',
+        background:
+          'linear-gradient(145deg, rgba(16, 23, 25, 0.98), rgba(5, 5, 5, 0.98) 62%, rgba(20, 17, 11, 0.96))',
+        borderRadius: '18px',
         padding: 'clamp(24px, 4vw, 40px)',
-        border: '1px solid rgba(242, 233, 228, 0.1)',
-        boxShadow: '0 24px 80px rgba(0, 0, 0, 0.34), inset 0 1px 0 rgba(242, 233, 228, 0.05)',
-        overflow: 'hidden',
+        border: '1px solid rgba(223, 174, 76, 0.38)',
+        boxShadow:
+          '0 24px 80px rgba(0, 0, 0, 0.42), 0 0 0 1px rgba(223, 174, 76, 0.05), inset 0 1px 0 rgba(247, 181, 56, 0.14)',
       }}
     >
       <div
-        className="flex items-center gap-2 mb-7"
+        className="pointer-events-none absolute inset-0 opacity-40 transition-opacity duration-500 group-hover:opacity-70"
         aria-hidden="true"
         style={{
-          margin: 'clamp(-40px, -4vw, -24px) clamp(-40px, -4vw, -24px) 28px',
-          padding: '14px clamp(24px, 4vw, 40px)',
-          background: 'linear-gradient(90deg, rgb(28 157 62 / 95%), rgb(100 197 48 / 78%))',
-          borderBottom: '1px solid rgba(100, 197, 48, 0.65)',
+          backgroundImage:
+            'linear-gradient(rgba(223, 174, 76, 0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(223, 174, 76, 0.045) 1px, transparent 1px)',
+          backgroundSize: '28px 28px',
+          maskImage: 'linear-gradient(to bottom, black, transparent 78%)',
+        }}
+      />
+      <div
+        className="relative -mx-[clamp(24px,4vw,40px)] -mt-[clamp(24px,4vw,40px)] mb-7 flex items-center justify-between border-b px-[clamp(24px,4vw,40px)] py-3.5"
+        style={{
+          background: 'rgba(5, 5, 5, 0.62)',
+          borderColor: 'rgba(223, 174, 76, 0.22)',
         }}
       >
-        <span className="w-3 h-3 rounded-full" style={{ backgroundColor: '#FF5F56' }} />
-        <span className="w-3 h-3 rounded-full" style={{ backgroundColor: '#FFBD2E' }} />
-        <span className="w-3 h-3 rounded-full" style={{ backgroundColor: '#27C93F' }} />
-        {label && (
-          <span className="font-mono text-[11px] uppercase tracking-[0.1em] ml-3" style={{ color: '#0A0908' }}>
-            {label}
-          </span>
-        )}
+        <div className="flex items-center gap-2" aria-hidden="true">
+          <span className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: '#FF5F56' }} />
+          <span className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: '#FFBD2E' }} />
+          <span className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: '#27C93F' }} />
+        </div>
+        <span className="font-mono text-[10px] uppercase tracking-[0.16em]" style={{ color: '#8A817C' }}>
+          {label ?? 'terminal'} <span style={{ color: '#DFAE4C' }}>●</span>
+        </span>
       </div>
 
-      <div className="font-mono text-sm">
+      <div
+        className="relative rounded-lg px-4 py-3 font-mono text-sm"
+        style={{
+          background: 'rgba(0, 0, 0, 0.34)',
+          border: '1px solid rgba(242, 233, 228, 0.08)',
+          boxShadow: 'inset 0 1px 10px rgba(0, 0, 0, 0.18)',
+        }}
+      >
         <span style={{ color: '#DFAE4C' }}>nabiul</span>
         <span style={{ color: '#8A817C' }}>@portfolio</span>
         <span style={{ color: '#DFAE4C' }}>:~$</span>{' '}
         <span className="text-bone">{typedText}</span>
-        <span className="inline-block w-2 h-4 bg-bone ml-0.5 animate-caret-blink align-middle" />
+        <span className="ml-0.5 inline-block h-4 w-2 bg-[#DFAE4C] align-middle animate-caret-blink" />
       </div>
 
       <div
-        className="mt-8 transition-all duration-500"
+        className="relative mt-8 border-t pt-6 transition-all duration-500"
         style={{
           opacity: showOutput ? 1 : 0,
           transform: showOutput ? 'translateY(0)' : 'translateY(14px)',
           pointerEvents: showOutput ? 'auto' : 'none',
+          borderColor: 'rgba(223, 174, 76, 0.16)',
         }}
       >
         {showOutput && children}

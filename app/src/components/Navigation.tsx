@@ -18,13 +18,18 @@ const navItems = [
 export default function Navigation({ lenisRef }: NavigationProps) {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+  const [navVisible, setNavVisible] = useState(true);
   const navRef = useRef<HTMLElement>(null);
+  const lastScrollYRef = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 100);
+      const currentScrollY = window.scrollY;
+      setScrolled(currentScrollY > 100);
+      setNavVisible(currentScrollY < 12 || currentScrollY < lastScrollYRef.current);
+      lastScrollYRef.current = currentScrollY;
 
-      const marker = window.scrollY + window.innerHeight * 0.36;
+      const marker = currentScrollY + window.innerHeight * 0.36;
       const sections = navItems
         .map((item) => document.getElementById(item.id))
         .filter((section): section is HTMLElement => Boolean(section));
@@ -58,46 +63,71 @@ export default function Navigation({ lenisRef }: NavigationProps) {
   return (
     <nav
       ref={navRef}
-      className="fixed top-0 left-0 w-full z-50 transition-all duration-200"
+      className="fixed top-0 left-0 w-full z-50 transition-transform duration-300 ease-out"
       style={{
+        transform: navVisible ? 'translateY(0)' : 'translateY(-100%)',
         background: scrolled
-          ? 'linear-gradient(90deg, rgba(5, 5, 5, 0.96), rgba(14, 20, 22, 0.94), rgba(5, 5, 5, 0.96))'
-          : 'linear-gradient(90deg, rgba(5, 5, 5, 0.78), rgba(16, 23, 25, 0.58), rgba(5, 5, 5, 0.78))',
-        backdropFilter: 'blur(20px)',
-        WebkitBackdropFilter: 'blur(20px)',
-        height: 72,
-        borderBottom: '1px solid rgba(242, 233, 228, 0.1)',
-        boxShadow: scrolled ? '0 10px 40px rgba(0, 0, 0, 0.28)' : 'none',
+          ? 'linear-gradient(90deg, rgba(5, 5, 5, 0.98), rgba(15, 22, 24, 0.97), rgba(5, 5, 5, 0.98))'
+          : 'linear-gradient(90deg, rgba(5, 5, 5, 0.9), rgba(16, 23, 25, 0.84), rgba(5, 5, 5, 0.9))',
+        height: 82,
+        borderBottom: '1px solid rgba(223, 174, 76, 0.65)',
+        boxShadow: scrolled
+          ? '0 12px 42px rgba(0, 0, 0, 0.42), 0 1px 0 rgba(247, 181, 56, 0.14)'
+          : '0 8px 28px rgba(0, 0, 0, 0.24), 0 1px 0 rgba(247, 181, 56, 0.1)',
       }}
     >
-      <div className="max-w-[1400px] mx-auto px-6 h-full flex items-center justify-between">
+      <div className="max-w-[1400px] mx-auto px-8 h-full flex items-center justify-between">
         {/* Monogram */}
         <button
           onClick={() => {
             if (lenisRef.current) lenisRef.current.scrollTo(0, { duration: 1.2 });
             else window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
-          className="font-mono font-bold text-base tracking-tight transition-all duration-200 hover:shadow-lg"
-          style={{
-            color: '#0A0908',
-            backgroundColor: '#DFAE4C',
-            borderRadius: '8px',
-            padding: '8px 12px',
-            boxShadow: '0 0 24px rgba(247, 181, 56, 0.16)',
-          }}
+          className="flex items-center gap-4 font-mono font-bold text-lg tracking-tight transition-all duration-200 hover:shadow-lg"
+          aria-label="Return to the top of the portfolio"
         >
-          S.M. Nabiul Islam
+          <span
+            className="relative flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-lg"
+            style={{
+              color: '#DFAE4C',
+              backgroundColor: '#0A0908',
+              border: '2px solid #F7D477',
+              boxShadow: '0 0 20px rgba(10, 9, 8, 0.22)',
+            }}
+          >
+            <span className="text-sm" aria-hidden="true">SN</span>
+            <img
+              src="/assets/headshot.jpg"
+              alt=""
+              className="absolute inset-0 h-full w-full object-cover"
+              onError={(event) => {
+                event.currentTarget.style.display = 'none';
+              }}
+            />
+          </span>
+          <span
+            className="rounded-lg px-4 py-2.5"
+            style={{
+              color: '#0A0908',
+              backgroundColor: '#DFAE4C',
+              border: '1px solid #F7D477',
+              boxShadow: '0 6px 18px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255, 244, 190, 0.5)',
+            }}
+          >
+            S.M. Nabiul Islam
+          </span>
         </button>
 
         {/* Nav Links */}
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-10">
           {navItems.map((item) => (
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
-              className="group relative font-mono text-xs uppercase tracking-[0.08em] transition-colors duration-300"
+              className="group relative rounded-md px-1.5 py-2 font-mono text-sm uppercase tracking-[0.1em] transition-colors duration-300"
               style={{
-                color: activeSection === item.id ? '#DFAE4C' : '#F2E9E4',
+                color: '#DFAE4C',
+                fontWeight: activeSection === item.id ? 700 : 500,
               }}
             >
               {item.label}

@@ -136,7 +136,7 @@ export default function About() {
             style={{ aspectRatio: '3/4', borderRadius: '20px' }}
           >
             <img
-              src="/assets/Nabiul5.jpg"
+              src="/assets/Nabiul2.jpg"
               alt="S.M. Nabiul Islam Nabil"
               className="w-full h-full object-cover"
             />
