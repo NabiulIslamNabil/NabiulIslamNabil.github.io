@@ -87,7 +87,7 @@ export default function Projects() {
       }}
     >
       {/* Header Row */}
-      <div className="max-w-[1400px] mx-auto px-6 flex justify-between items-end mb-16">
+      <div className="max-w-[1400px] mx-auto px-6 flex flex-col gap-3 md:flex-row md:justify-between md:items-end mb-16">
         <div>
           <h2
             className="font-display text-bone"
@@ -196,8 +196,13 @@ export default function Projects() {
                     href={project.video ?? project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-mono text-[11px] transition-all duration-200 hover:underline"
-                    style={{ color: '#DFAE4C', textDecoration: 'none' }}
+                    className="inline-block font-mono font-bold text-xs uppercase tracking-[0.08em] px-4 py-2.5 rounded-full border transition-all duration-200 hover:scale-105 hover:shadow-lg"
+                    style={{
+                      color: '#0A0908',
+                      backgroundColor: '#DFAE4C',
+                      borderColor: '#F7D477',
+                      boxShadow: '0 6px 18px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255, 244, 190, 0.5)',
+                    }}
                   >
                     {project.video ? 'Watch on YouTube' : 'View on GitHub'}
                   </a>

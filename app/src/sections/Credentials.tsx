@@ -65,8 +65,13 @@ export default function Credentials() {
           </div>
           <a
             href="Nabiul_Islam_CV.pdf"
-            className="font-mono text-xs uppercase tracking-[0.08em] px-6 py-3 rounded-full border transition-all duration-200 w-fit"
-            style={{ borderColor: '#DFAE4C', color: '#DFAE4C' }}
+            className="font-mono font-bold text-sm uppercase tracking-[0.08em] px-7 py-3.5 rounded-full border transition-all duration-200 hover:scale-105 hover:shadow-lg w-fit"
+            style={{
+              color: '#0A0908',
+              backgroundColor: '#DFAE4C',
+              borderColor: '#F7D477',
+              boxShadow: '0 6px 18px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255, 244, 190, 0.5)',
+            }}
           >
             Download CV
           </a>

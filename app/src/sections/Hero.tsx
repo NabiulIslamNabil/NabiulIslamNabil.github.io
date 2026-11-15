@@ -87,7 +87,7 @@ export default function Hero({ lenisRef }: HeroProps) {
         }}
       />
 
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 grid grid-cols-2 gap-12 items-center">
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-center">
         {/* Left Content */}
         <div>
           {/* Label */}
@@ -156,7 +156,7 @@ export default function Hero({ lenisRef }: HeroProps) {
         </div>
 
         {/* Right Side - Image & Badges */}
-        <div className="relative h-[600px]">
+        <div className="relative h-[420px] md:h-[600px]">
           {/* Profile Image */}
           <div
             ref={imageRef}
@@ -176,7 +176,7 @@ export default function Hero({ lenisRef }: HeroProps) {
 
           {/* Floating badges */}
           <div ref={badgesContainerRef}>
-            <div className="badge-item absolute -bottom-6 -left-12 opacity-0">
+            <div className="badge-item absolute -bottom-4 left-2 md:-bottom-6 md:-left-12 opacity-0">
               <div
                 className="relative min-w-[164px] overflow-hidden rounded-xl px-4 py-3 font-mono text-sm backdrop-blur-md"
                 style={{
@@ -192,7 +192,7 @@ export default function Hero({ lenisRef }: HeroProps) {
               </div>
             </div>
 
-            <div className="badge-item absolute top-8 -right-12 opacity-0">
+            <div className="badge-item absolute top-8 right-2 md:-right-12 opacity-0">
               <div
                 className="relative min-w-[164px] overflow-hidden rounded-xl px-4 py-3 font-mono text-sm backdrop-blur-md"
                 style={{
@@ -208,7 +208,7 @@ export default function Hero({ lenisRef }: HeroProps) {
               </div>
             </div>
 
-            <div className="badge-item absolute bottom-1/3 -right-8 opacity-0">
+            <div className="badge-item absolute bottom-1/3 right-2 md:-right-8 opacity-0">
               <div
                 className="relative min-w-[164px] overflow-hidden rounded-xl px-4 py-3 font-mono text-sm backdrop-blur-md"
                 style={{
@@ -224,7 +224,7 @@ export default function Hero({ lenisRef }: HeroProps) {
               </div>
             </div>
 
-            <div className="badge-item absolute top-8 -left-12 opacity-0">
+            <div className="badge-item absolute top-8 left-2 md:-left-12 opacity-0">
               <div
                 className="relative min-w-[220px] overflow-hidden rounded-xl px-4 py-3 font-mono text-sm backdrop-blur-md"
                 style={{

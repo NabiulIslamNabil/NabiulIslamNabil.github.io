@@ -19,6 +19,7 @@ export default function Navigation({ lenisRef }: NavigationProps) {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('');
   const [navVisible, setNavVisible] = useState(true);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
   const lastScrollYRef = useRef(0);
 
@@ -53,6 +54,7 @@ export default function Navigation({ lenisRef }: NavigationProps) {
   }, []);
 
   const scrollToSection = (id: string) => {
+    setMobileMenuOpen(false);
     if (lenisRef.current) {
       lenisRef.current.scrollTo(`#${id}`, { duration: 1.2 });
     } else {
@@ -76,14 +78,14 @@ export default function Navigation({ lenisRef }: NavigationProps) {
           : '0 8px 28px rgba(0, 0, 0, 0.24), 0 1px 0 rgba(247, 181, 56, 0.1)',
       }}
     >
-      <div className="max-w-[1400px] mx-auto px-8 h-full flex items-center justify-between">
+      <div className="relative max-w-[1400px] mx-auto px-4 md:px-8 h-full flex items-center justify-between">
         {/* Monogram */}
         <button
           onClick={() => {
             if (lenisRef.current) lenisRef.current.scrollTo(0, { duration: 1.2 });
             else window.scrollTo({ top: 0, behavior: 'smooth' });
           }}
-          className="flex items-center gap-4 font-mono font-bold text-lg tracking-tight transition-all duration-200 hover:shadow-lg"
+          className="flex items-center gap-2 md:gap-4 font-mono font-bold text-lg tracking-tight transition-all duration-200 hover:shadow-lg"
           aria-label="Return to the top of the portfolio"
         >
           <span
@@ -106,7 +108,7 @@ export default function Navigation({ lenisRef }: NavigationProps) {
             />
           </span>
           <span
-            className="rounded-lg px-4 py-2.5"
+            className="rounded-lg px-2.5 py-2 md:px-4 md:py-2.5 text-sm md:text-base"
             style={{
               color: '#0A0908',
               backgroundColor: '#DFAE4C',
@@ -119,7 +121,7 @@ export default function Navigation({ lenisRef }: NavigationProps) {
         </button>
 
         {/* Nav Links */}
-        <div className="flex items-center gap-10">
+        <div className="hidden md:flex items-center gap-10">
           {navItems.map((item) => (
             <button
               key={item.id}
@@ -145,6 +147,42 @@ export default function Navigation({ lenisRef }: NavigationProps) {
             </button>
           ))}
         </div>
+
+        <button
+          type="button"
+          className="md:hidden rounded-md px-3 py-2 font-mono text-xs uppercase tracking-[0.1em]"
+          style={{ color: '#DFAE4C', border: '1px solid rgba(223, 174, 76, 0.5)' }}
+          aria-expanded={mobileMenuOpen}
+          aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          onClick={() => setMobileMenuOpen((open) => !open)}
+        >
+          {mobileMenuOpen ? 'Close' : 'Menu'}
+        </button>
+
+        {mobileMenuOpen && (
+          <div
+            className="absolute left-4 right-4 top-[74px] z-50 flex flex-col gap-1 rounded-lg p-3 md:hidden"
+            style={{
+              background: 'rgba(5, 5, 5, 0.98)',
+              border: '1px solid rgba(223, 174, 76, 0.45)',
+              boxShadow: '0 12px 30px rgba(0, 0, 0, 0.35)',
+            }}
+          >
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className="rounded-md px-3 py-3 text-left font-mono text-sm uppercase tracking-[0.1em]"
+                style={{
+                  color: '#DFAE4C',
+                  backgroundColor: activeSection === item.id ? 'rgba(223, 174, 76, 0.12)' : 'transparent',
+                }}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
     </nav>
   );
