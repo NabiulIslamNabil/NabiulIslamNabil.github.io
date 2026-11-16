@@ -10,9 +10,7 @@ const experience = [
   'Undergraduate Teaching Assistant at United International University - March 2025 to present',
   'Co-Head – Academic Growth & Development at UIU App Forum, United International University - Oct 2026 to present',
   'Assisted labs for Data Structures & Algorithms I & II, Software Engineering Lab, Electronics Lab, Introduction to Computer Systems and Structured Programming Language courses',
-  'Guided debugging, algorithmic problem solving, project development, and probation student counselling',
   'Volunteer with IDP Education Bangladesh, IDP Australia Education Roadshow - Aug 2026',
-  'Volunteer with Bangladesh Red Crescent Youth, BBNSC - 2014 to 2019',
 ];
 
 const achievements = [

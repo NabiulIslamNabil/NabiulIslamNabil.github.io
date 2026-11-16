@@ -96,7 +96,7 @@ export default function Hero({ lenisRef }: HeroProps) {
             className="font-mono text-xs uppercase tracking-[0.12em] mb-6 opacity-0"
             style={{ color: '#DFAE4C', transform: 'translateY(40px)' }}
           >
-            CSE UNDERGRADUATE & UNDERGRADUATE TEACHING ASSISTANT
+            UNDERGRADUATE TEACHING ASSISTANT | DEVELOPER | RESEARCHER
           </div>
 
           {/* Name */}
@@ -126,9 +126,9 @@ export default function Hero({ lenisRef }: HeroProps) {
               transform: 'translateY(40px)',
             }}
           >
-            I build practical software, IoT systems, and AI-assisted solutions for real-world problems in Bangladesh. 
-            Currently working on projects and doing research at UIU and I have also mentored over 400+ students as an 
-            Undergraduate Teaching Assistant.
+            I'm a Computer Science and Engineering undergraduate at United International University, 
+            majoring in Data Science. I build software and intelligent systems while exploring research in cybersecurity, machine learning
+            and sustainable computing. Alongside my technical work, I've mentored 400+ students as an Undergraduate Teaching Assistant.
           </p>
 
           {/* CTA */}

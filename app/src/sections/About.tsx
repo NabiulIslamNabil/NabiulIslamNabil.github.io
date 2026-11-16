@@ -74,9 +74,8 @@ export default function About() {
               lineHeight: 1.7,
             }}
           >
-            I'm a Computer Science and Engineering undergraduate at United International University
-            with a 4.00 CGPA and 132 credits completed and ongoing. I work across mobile apps,
-            full-stack systems, embedded hardware, and research-oriented computing.
+            I'm a final-year Computer Science and Engineering undergraduate, majoring in Data Science, 
+            at United International University, Bangladesh, interested in software engineering, intelligent systems, and applied research.
           </p>
 
           <p
@@ -87,12 +86,11 @@ export default function About() {
               lineHeight: 1.7,
             }}
           >
-            I’m a full-stack, mobile, and hardware developer with award-winning projects recognized at the UIU CSE Project Show. 
-            My work includes ResQ, a real-time emergency response app with SOS alerts and location tracking; 
-            ARAM, an autonomous IoT river monitoring system; EasyNeeds, a service platform connecting users with essential resources; 
-            FarmFriend, a smart agriculture management platform; and FinVision AI, an AI-powered personal finance assistant 
-            featuring OCR receipt scanning, NLP expense logging, bill splitting, and budgeting tools.
-
+            I've worked on projects spanning full-stack development, mobile
+            applications, IoT, and AI, including ResQ (UIU CSE Project Show
+            Champion Spring 2025), ARAM, EasyNeeds, FarmFriend, and FinVision 3.0.
+            As an Undergraduate Teaching Assistant, I've also mentored 400+
+            students across multiple computing lab courses.
           </p>
 
           <p
@@ -103,7 +101,18 @@ export default function About() {
               lineHeight: 1.7,
             }}
           >
-            My research interests include <span style={{ color: '#DFAE4C' }}>cybersecurity</span>, <span style={{ color: '#DFAE4C' }}>machine learning</span>, <span style={{ color: '#DFAE4C' }}>edge intelligence</span>, <span style={{ color: '#DFAE4C' }}>IoT</span>, <span style={{ color: '#DFAE4C' }}>green computing</span>, and <span style={{ color: '#DFAE4C' }}>federated learning</span>.
+            My research interests include{' '}
+            <span style={{ color: '#DFAE4C' }}>cybersecurity</span>,{' '}
+            <span style={{ color: '#DFAE4C' }}>software supply-chain security</span>,{' '}
+            <span style={{ color: '#DFAE4C' }}>digital image processing</span>,{' '}
+            <span style={{ color: '#DFAE4C' }}>machine learning</span>,{' '}
+            <span style={{ color: '#DFAE4C' }}>edge intelligence</span>,{' '}
+            <span style={{ color: '#DFAE4C' }}>IoT</span>, and{' '}
+            <span style={{ color: '#DFAE4C' }}>green computing</span>.
+            My ongoing research explores topics ranging from software ecosystem
+            security to smartphone-based relative illuminance estimation using
+            image processing and machine learning, alongside sustainable and
+            intelligent computing systems.
           </p>
 
           {/* Status row */}
